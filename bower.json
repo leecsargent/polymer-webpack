@@ -1,0 +1,20 @@
+{
+  "name": "polymer-app-webpack",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Lee Sargent <leecsargent@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^2.0.1"
+  }
+}

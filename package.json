@@ -1,0 +1,25 @@
+{
+  "name": "polymer-app-webpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --open",
+    "build": "webpack --progress --colors"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.6.0",
+    "copy-webpack-plugin": "^4.0.1",
+    "date-fns": "^1.28.5",
+    "html-webpack-plugin": "^2.29.0",
+    "polymer-webpack-loader": "^2.0.0",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.5.0"
+  },
+  "author": "",
+  "license": "ISC"
+}

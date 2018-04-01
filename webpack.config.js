@@ -54,7 +54,8 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
-    port: 9000
+    port: 9000,
+    historyApiFallback: true
   },
   plugins: [
     // This plugin will generate an index.html file for us that can be used

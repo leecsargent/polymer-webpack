@@ -9,8 +9,19 @@ class PostsApp extends Polymer.Element {
         value: function() {
           return format(new Date(), 'MM/DD/YYYY');
         }
+      },
+
+      user: {
+        type: Object,
       }
     }
+  }
+  
+  ready() {
+    super.ready();
+    this.addEventListener('login-submit', function(event) {
+      this.set('user', event.detail);
+    })
   }
 }
 

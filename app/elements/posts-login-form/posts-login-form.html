@@ -1,0 +1,23 @@
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../../../bower_components/polymer/lib/mixins/gesture-event-listeners.html">
+
+<dom-module id="posts-login-form">
+  <template>
+    <iron-form id="loginForm">
+      <form method="" action="">
+        <fieldset name="email">
+		      <label for="email">Email</label>
+		      <input type="email" name="email">
+		    </fieldset>
+
+		   	<fieldset name="password">
+		      <label for="password">Password</label>
+		      <input type="password" name="password" id="password">
+		    </fieldset>
+      </form>
+    </iron-form>
+    <button type="button" name="button" on-tap="_submit">submit</button>
+  </template>
+  <script src="posts-login-form.js"></script>
+</dom-module>

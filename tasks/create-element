@@ -1,0 +1,15 @@
+#!/bin/bash
+
+ELEMENT_NAME=$@
+BASE=app/elements
+DEST=$BASE/$ELEMENT_NAME
+
+cp -r app/element-seed $DEST
+mv $DEST/element-seed.html $DEST/$ELEMENT_NAME.html
+mv $DEST/element-seed.js $DEST/$ELEMENT_NAME.js
+
+find $DEST -name '*.html' | xargs sed -i .bak -e "s/\<%= elementName %>/$ELEMENT_NAME/g"
+find $DEST -name '*.js' | xargs sed -i .bak -e "s/\<%= elementName %>/$ELEMENT_NAME/g"
+find $DEST -name '*.bak' | xargs rm -f
+
+echo "# Element created at $DEST"

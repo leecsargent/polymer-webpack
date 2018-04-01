@@ -1,12 +1,25 @@
 <link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../../bower_components/polymer/lib/elements/dom-if.html">
 <link rel="import" href="../posts-data/posts-data.html">
 <link rel="import" href="../posts-list/posts-list.html">
+<link rel="import" href="../posts-login-form/posts-login-form.html">
 
 <dom-module id="posts-app">
   <template>
     <h1>Hello, World! It's [[today]].</h1>
-    <posts-data posts="{{posts}}"></posts-data>
-    <posts-list posts="[[posts]]"></posts-list>
+
+    <posts-data
+      posts="{{posts}}"
+      authentication="{{authentication}}"
+      user="[[user]]">
+    </posts-data>
+
+    <posts-login-form></posts-login-form>
+
+    <template is="dom-if" if="[[authentication.isAuthenticated]]">
+       <posts-list posts="[[posts]]"></posts-list>
+    </template>
+
   </template>
   <script src="posts-app.js"></script>
 </dom-module>

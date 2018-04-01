@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
+    <posts-app-location></posts-app-location>
     <posts-app></posts-app>
+
 
     <!--
       Feature detect Custom Elements support. If the browser DOES support Custom
@@ -36,13 +38,13 @@
         document.addEventListener('WebComponentsReady', function componentsReady() {
           document.removeEventListener('WebComponentsReady', componentsReady, false);
           var script = document.createElement('script');
-          script.src = '<%= htmlWebpackPlugin.files.js[0] %>';
+          script.src = '/<%= htmlWebpackPlugin.files.js[0] %>';
           var refScript = document.getElementsByTagName('script')[0];
           refScript.parentNode.insertBefore(script, refScript);
         }, false);
       })();
     </script>
-    <script src="bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="/bower_components/webcomponentsjs/webcomponents-loader.js"></script>
 
     <!--
       IMPORTANT: Make sure you set the inject: false option in HTMLWebpackPlugin

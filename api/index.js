@@ -24,19 +24,6 @@ const store = createStoreFactory.createStore(
 
 const actions = actionsFactory.createActions(store, rootActions);
 
-// export default {
-//   store,
-//   actions,
-// }
-
 api = createApi(store, actions, rootApi);
-
-console.log(api);
-// rootApu should look like
-//  {
-//   data: dataApi,
-//   navigation: navigationApi,
-//   state: stateApi,
-// };
 
 export default api;

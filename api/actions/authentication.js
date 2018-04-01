@@ -1,20 +1,15 @@
 import genSalt from '../utils/salt'
 import bcrypt from 'bcryptjs';
 
+let salt;
+
 export const login = (username, password) => {
 
   return (dispatch) => {
     // Show the loading indicator, hide the last error
     dispatch(loginUserRequest());
-    // If no username or password was specified, throw a field-missing error
 
-    // TODO deal with this :(
-    // if (anyElementsEmpty({ username, password })) {
-    //   dispatch(setErrorMessage(errorMessages.FIELD_MISSING));
-    //   return;
-    // }
-    // Generate salt for password encryption
-    const salt = genSalt(username);
+    salt = genSalt(username);
     // Encrypt password
     bcrypt.hash(password, salt, (err, hash) => {
       // Something wrong while hashing
@@ -64,7 +59,7 @@ export function loginUserSuccess(token) {
   }
 }
 
-export function validateToken(token) {
+export function verifyToken(token) {
   return (dispatch) => {
     dispatch(loginUserRequest());
     return fetch('http://localhost:4000/users/validate', {
@@ -85,4 +80,14 @@ export function validateToken(token) {
       console.log('error', error);
     })
   }
+}
+
+function _setInititialUnauthorized() {
+  return {
+    type: 'SET_INITIAL_UNAUTHORIZED'
+  }
+}
+
+export function setInititialUnauthorized() {
+  return dispatch => dispatch(_setInititialUnauthorized());
 }

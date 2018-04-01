@@ -7,12 +7,15 @@ const fetchPosts = () => {
 }
 
 const login = (user, password) => {
-  console.log(_actions.authenticationActions)
   _actions.authenticationActions.login(user, password);
 };
 
+const setInititialUnauthorized = () => {
+  _actions.authenticationActions.setInititialUnauthorized();
+};
+
 const _loadAdditionalData = () => {
-  console.log('_loadAdditionalData');
+  //console.log('_loadAdditionalData');
 }
 
 const loadAppData = () => {
@@ -20,19 +23,20 @@ const loadAppData = () => {
   // login('leecsargent@gmail.com','Jessie123');
 }
 
-const validateToken = (token) => {
-  _actions.authenticationActions.validateToken(token);
+const verifyToken = (token) => {
+  _actions.authenticationActions.verifyToken(token);
 }
 
 const init = (store, actions) => {
   _store = store;
   _actions = actions;
 
-  console.log(_actions);
   return {
+    login,
     fetchPosts,
     loadAppData,
-    validateToken,
+    verifyToken,
+    setInititialUnauthorized,
   }
 }
 

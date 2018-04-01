@@ -1,3 +1,5 @@
+import {ACTION_TYPES, STATUSES} from '../constants';
+
 const initialState = {
   history: [],
   route: [],
@@ -23,30 +25,3 @@ const navigationReducer = (state = initialState, action) => {
 }
 
 export default navigationReducer;
-// export default function navigationReducer(state, action) {
-//   if (typeof state === 'undefined') {
-//     state = initialState;
-//   }
-//
-//   switch (action.type) {
-//   case ACTION_TYPES.SET_ROUTE:
-//     return Object.assign({},
-//       state,
-//       action.payload,
-//       {
-//         history: state.history.concat([state.route]),
-//         error: null,
-//         status: STATUSES.READY,
-//       });
-//   case ACTION_TYPES.SET_MODAL_CLOSED:
-//     return Object.assign({},
-//       state,
-//       {modal: {isOpen: false}});
-//   case ACTION_TYPES.SET_MODAL_OPEN:
-//     return Object.assign({},
-//       state,
-//       {modal: {isOpen: true}});
-//   }
-//
-//   return state;
-// }

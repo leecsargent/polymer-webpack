@@ -19,6 +19,11 @@ class PostsData extends Polymer.Element {
         readOnly: true,
       },
 
+      navigation: {
+        type: Object,
+        notify: true,
+      },
+
       user: {
         type: Object,
         observer: '_onUserChanged',
@@ -28,18 +33,20 @@ class PostsData extends Polymer.Element {
 
   ready() {
     super.ready();
-    console.log('token', localStorage.getItem('token'));
     var token = localStorage.getItem('token');
-    console.log(api.data)
-    if (token) {
-      api.data.validateToken(token);
-    }
+
+    token ? api.data.verifyToken(token) : api.data.setInititialUnauthorized();
+
+
     api.state.subscribe(this._subscribe.bind(this));
   }
 
   _subscribe(state) {
     var state = api.state.getState();
-    console.log('subscriber in posts-data', state)
+  }
+
+  _onUserChanged(user) {
+    api.data.login(user.email, user.password);
   }
 }
 

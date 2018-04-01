@@ -1,5 +1,19 @@
-const authentication = (state ={isAuthenticated: false, isFetching: false}, action) => {
+const initialState = {
+  isAuthenticated: false,
+  isFetching: false,
+  status: 'BUSY',
+};
+
+const authentication = (state = initialState, action) => {
   switch (action.type) {
+    case 'SET_INITIAL_UNAUTHORIZED':
+      return Object.assign({}, state, {
+        isFetching: false,
+        didInvalidate: false,
+        isAuthenticated: false,
+        status: 'READY',
+      });
+
     case 'LOGIN_REQUEST':
       return Object.assign({}, state, {
         isFetching: true,
@@ -12,6 +26,7 @@ const authentication = (state ={isAuthenticated: false, isFetching: false}, acti
         didInvalidate: false,
         isAuthenticated: true,
         token: action.payload.token,
+        status: 'READY',
       });
 
     default:

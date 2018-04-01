@@ -17,6 +17,8 @@
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.1",
     "iron-form": "^2.3.0",
-    "app-route": "PolymerElements/app-route#^2.1.0"
+    "app-route": "PolymerElements/app-route#^2.1.0",
+    "iron-pages": "^2.1.0",
+    "iron-flex-layout": "^2.0.3"
   }
 }

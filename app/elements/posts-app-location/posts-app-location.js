@@ -36,8 +36,7 @@ class PostsAppLocation extends Polymer.Element {
 
     this.set('route', cleanRoute);
 
-    console.log('api in posts-app-location', api);
-    //  api.navigation.setRoute({route: parts});
+    api.navigation.setRoute({route: parts});
   }
 
   _onSetRoute(event) {

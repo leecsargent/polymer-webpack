@@ -28,21 +28,18 @@ class PostsData extends Polymer.Element {
 
   ready() {
     super.ready();
-    api.store.dispatch(api.actions.postActions.fetchPosts())
-    api.store.subscribe(this._subscribe.bind(this));
-  }
-
-  _onUserChanged(user) {
-    api.store.dispatch(api.actions.authenticationActions.login(user.email, user.password))
+    console.log('token', localStorage.getItem('token'));
+    var token = localStorage.getItem('token');
+    console.log(api.data)
+    if (token) {
+      api.data.validateToken(token);
+    }
+    api.state.subscribe(this._subscribe.bind(this));
   }
 
   _subscribe(state) {
-    var state = api.store.getState();
-    var posts = api.store.getState().posts && api.store.getState().posts.items;
-
-    var authentication = api.store.getState().authentication;
-    this._setAuthentication(authentication);
-    this._setPosts(posts);
+    var state = api.state.getState();
+    console.log('subscriber in posts-data', state)
   }
 }
 

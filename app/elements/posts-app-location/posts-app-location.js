@@ -1,3 +1,5 @@
+import api from 'api';
+
 class PostsAppLocation extends Polymer.Element {
   static get is() { return 'posts-app-location'; }
   static get properties() {
@@ -34,6 +36,7 @@ class PostsAppLocation extends Polymer.Element {
 
     this.set('route', cleanRoute);
 
+    console.log('api in posts-app-location', api);
     //  api.navigation.setRoute({route: parts});
   }
 

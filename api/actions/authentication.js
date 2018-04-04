@@ -63,3 +63,26 @@ export function loginUserSuccess(token) {
     }
   }
 }
+
+export function validateToken(token) {
+  return (dispatch) => {
+    dispatch(loginUserRequest());
+    return fetch('http://localhost:4000/users/validate', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': token,
+      }
+    })
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      return dispatch(loginUserSuccess(data.auth_token));
+    })
+    .catch(function(error) {
+      // TODO fix the error in rails
+      console.log('error', error);
+    })
+  }
+}
